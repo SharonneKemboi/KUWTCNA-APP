@@ -6,7 +6,7 @@ class Config:
     '''
     NEWS_API_BASE_URL = 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=e1748305ab8746c89ef63618e01e7b8e'
     NEWS_API_KEY = os.environ.get('e1748305ab8746c89ef63618e01e7b8e')
-
+    SECRET_KEY = os.environ.get('SECRET_KEY') 
 
 
 class ProdConfig(Config):
