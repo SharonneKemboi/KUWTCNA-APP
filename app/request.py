@@ -19,11 +19,12 @@ def get_articles():
     '''
     This will get the JSON response to the URL request
     '''
-    get_articles_url = base_url.format(api_key)
+    get_articles_url = base_url.format( api_key)
 
     with urllib.request.urlopen(get_articles_url) as url:
         get_articles_data = url.read()
         get_articles_response = json.loads(get_articles_data)
+
         articles_results = None
 
         if get_articles_response['articles']:
@@ -33,26 +34,9 @@ def get_articles():
             
 
     return articles_results
-def process_results(articles_list):
-    
-    articles_results = []
-
-    for articles_item in articles_list:
-        title = articles_item.get('title')
-        description = articles_item.get('description')
-        imageurl = articles_item.get('imageurl')
-        content = articles_item.get('content')
-        articledate = articles_item.get('articledate')
-        url = articles_item.get('url')
-
-        articles_object = Articles(title, description, imageurl, content, articledate, url)
-       
-        articles_results.append(articles_object)
-        
-    return articles_results
 
 def search_news(article_name):
-    search_news_url = 'https://api.themoviedb.org/3/search/movie?api_key={}&query={}'.format(api_key,article_name)
+    search_news_url = 'https://newsapi.org/v2/everything?q={}&apiKey={}'.format(api_key,article_name)
     with urllib.request.urlopen(search_news_url) as url:
         search_news_data = url.read()
         search_news_response = json.loads(search_news_data)
@@ -65,5 +49,25 @@ def search_news(article_name):
 
 
     return search_news_results
+
+def process_results(articles_list):
+    
+    articles_results = []
+
+    for articles_item in articles_list:
+        title = articles_item.get('title')
+        description = articles_item.get('description')
+        urlToImage = articles_item.get("urlToImage")
+        content = articles_item.get('content')
+        articledate = articles_item.get('articledate')
+        url = articles_item.get('url')
+
+        articles_object = Articles(title, description, urlToImage, content, articledate, url)
+       
+        articles_results.append(articles_object)
+        
+    return articles_results
+
+
     
 
