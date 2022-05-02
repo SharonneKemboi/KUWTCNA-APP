@@ -42,14 +42,28 @@ def process_results(articles_list):
         description = articles_item.get('description')
         imageurl = articles_item.get('imageurl')
         content = articles_item.get('content')
-        date = articles_item.get('date')
+        articledate = articles_item.get('articledate')
         url = articles_item.get('url')
 
-        articles_object = Articles(title, description, imageurl, content, date, url)
+        articles_object = Articles(title, description, imageurl, content, articledate, url)
        
         articles_results.append(articles_object)
         
     return articles_results
 
+def search_news(article_name):
+    search_news_url = 'https://api.themoviedb.org/3/search/movie?api_key={}&query={}'.format(api_key,article_name)
+    with urllib.request.urlopen(search_news_url) as url:
+        search_news_data = url.read()
+        search_news_response = json.loads(search_news_data)
+
+        search_news_results = None
+
+        if search_news_response['results']:
+            search_news_list = search_news_response['results']
+            search_news_results = process_results(search_news_list)
+
+
+    return search_news_results
     
 
