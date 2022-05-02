@@ -1,0 +1,26 @@
+{% macro display_news(news) %} {% for news in news %}
+
+<div class="container-fluid">
+    <div class="card-columns">
+        <div class="card mt-4">
+            <img src="{{ news.imageurl }}" alt="{{ news.title }} imageurl" class="img-responsive">
+            
+            <div class="card-body  text-light">
+                <h3 class="card-title " style="color: rgb(52, 255, 7); font-weight: 900;">{{news.title}}</h3>
+                <p class="card-text lead " style="font-size: 1.2rem;">{{news.description}}</p>
+				<p class="card-text " style="font-size: 1.2rem;">{{news.content}}</p>
+				<p class="card-text text-center ">{{news.date}}</p>
+                <a href="{{news.url}}" class="card-text text-center text-decoration-none" >
+                    <div class="d-grid gap-1 col-4 mx-auto">
+                        <button class="btn btn-outline-dark text-light bg-dark btn-lg" type="button" >Read More </button >
+					</div>
+				</a>
+            
+            </div>
+        </div>
+       
+    </div>
+    
+</div>
+
+{% endfor %} {% endmacro %}
