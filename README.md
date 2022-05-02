@@ -81,7 +81,7 @@
 
 
 ## Known Bugs
-> All known bugs were fixed (Bug fixed) . Seen any Bug? Feel free to reach me Asap!!
+> All known bugs were fixed (Bug fixed) . Seen any Bug? Feel free to reach me Asap!
 
 ## License
 
