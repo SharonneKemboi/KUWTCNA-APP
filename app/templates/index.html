@@ -1,14 +1,30 @@
 {% import 'macros.html'as macro %} {% extends 'base.html' %} {% block content %}
     
-<h1 class="text-center m-3" style="color: rgb(246, 63, 12);"> TOP KUWTCNA NEWS </h1>
+<h1 class="text-center mt-4" style="color: rgb(246, 63, 12);"> TOP KUWTCNA NEWS </h1>
 <div class="container">
     <form>
-        <input type="text" name="news_query" placeholder="Search for a News Article" class="form-control">
-        <input type="submit"  value="Submit" class="btn btn-default bg-success text-light p-2 m-2">
+        <input type="text" name="news_query" placeholder="Search for a News Article" class="form-control" style="width: 50%;">
+        <input type="submit"  value="Submit" class="btn btn-md  text-light " style="margin-left: 55%; margin-top: -7%; background-color: orangered;">
     </form>
 
 </div>
-<div class="d-block-flex m-4"> {{macro.display_news(news)}} </div>
-
+  
+  <div class="d-flex flex-wrap mx-2"> {{macro.display_news(news)}} </div>
+  <footer>
+    <!--socialmedia nad copyright-->
+    <div class="d-flex justify-content-between">
+       <div><p class="text-light pl-5">Copyright 2022&nbsp;<span class="theme-color pl-5">KUWTCNA APP </span></p>
+           <i class="fa fa-copyright" style="color: #FE5A07;" aria-hidden="true"> Made With Love --- All Copyrights Are Reserved </i>
+       </div>
+       <div class="social">
+           <i class="fab fa-facebook-f " style="color:rgb(13, 36, 238);"></i>
+           <i class="fa-brands fa-twitter-square" style="color: #07fefe;"></i>
+           <i class="fa-brands fa-instagram-square" style="color: #e450a1;"></i>
+           <i class="fa-brands fa-linkedin" style="color: blue;"></i>
+       </div>
+   </div>
+</div>
+</footer>
+   
 {% endblock %}
-    
+
